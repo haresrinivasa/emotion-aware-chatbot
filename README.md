@@ -90,6 +90,11 @@ emotion-aware-chatbot/
 
 `pip install -r requirements.txt`
 
+`sudo apt-get update && sudo apt-get install -y libgl1` 
+`sudo apt update`
+`sudo apt install git-lfs`
+`git lfs install`
+
 ### 4. Running the Application
 
 `python app.py`
