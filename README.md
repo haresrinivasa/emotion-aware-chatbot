@@ -52,13 +52,14 @@ This Emotion-Aware Chatbot captures a user's facial expression via webcam, detec
 ## 📌 Example Output
 <details>
   <summary><strong>FIRST BUILD</strong></summary>
-  <br> <img src=".images/first_build.png" alt="First Build Output"/>
-</details>
-<br>
+  <br> On Local <img src=".images/first_build.png" alt="First Build Output"/><br>
+  <br> On Azure <img src=".images/first_build_on_azure.png" alt="First Build Output on Azure"/> <br>
+</details> <br>
 <details>
   <summary><strong>SECOND BUILD</strong></summary>
-  <br> <img src=".images/second_build.jpg" alt="Second Build Output"/>
-</details>
+  Will Upload it soon :)
+  <!-- <br> <img src=".images/second_build.jpg" alt="Second Build Output"/> -->
+</details> <br>
 
 ---
 
