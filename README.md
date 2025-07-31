@@ -1,7 +1,7 @@
 # 🤖 Emotion-Aware Chatbot
 
 A real-time, webcam-integrated chatbot that detects human emotions using facial expressions 
-and responds empathetically. This project combines computer vision, deep learning, and 
+and responds **empathetically**. This project combines computer vision, deep learning, and 
 natural language processing to create a more emotionally intelligent conversational experience.
 
 ---
@@ -18,8 +18,6 @@ This Emotion-Aware Chatbot captures a user's facial expression via webcam, detec
 - 🤖 **Emotion Detection**: Uses the `FER` (Facial Expression Recognition) library with MTCNN for accurate emotion classification.
 - 💬 **Empathetic Responses**: Generates human-like responses tailored to the detected emotion.
 - 🧩 **Modular Design**: Clean separation of concerns across camera, emotion detection, and chatbot logic.
-
----
 
 ## 🛠️ Tech Stack
 
@@ -42,62 +40,100 @@ This Emotion-Aware Chatbot captures a user's facial expression via webcam, detec
 
 ---
 
+## 🔄 Version History
+
+- **First Build**: 
+  - CLI based application where static image was loaded to test the FER Model capabilities.
+
+- **Second Build**: 
+  - Simple Web interface where webcam of the user is used and real time emotion is captured!
+
+---
 ## 📌 Example Output
--- Starting Emotion-Aware Chatbot... 
--- Press 'q' to capture face and exit.
--- Detected Emotion: happy
--- Chatbot Response: I'm glad to see you're happy! 😊
+<details>
+  <summary><strong>FIRST BUILD</strong></summary>
+  <br> <img src=".images/first_build.png" alt="First Build Output"/>
+</details>
+<br>
+<details>
+  <summary><strong>SECOND BUILD</strong></summary>
+  <br> <img src=".images/second_build.jpg" alt="Second Build Output"/>
+</details>
 
 ---
 
 ## 📁 Project Structure
-```
-emotion-aware-chatbot/
-├── ⚙️  .devcontainer/              # Development container setup for GitHub Codespaces or VS Code
-│   └── 📄 devcontainer.json        # Configuration file defining the container environment
-│
-├── 📷  camera/                     # Webcam-related functionality
-│   └── 📄 webcam.py                # Captures live video and extracts facial images
-│
-├── 💬  chatbot/                    # Chatbot logic and empathetic response generation
-│   └── 📄 empathetic_bot.py        # Returns emotion-specific responses based on detected emotion
-│
-├── 😶  emotion/                    # Emotion detection logic
-│   └── 📄 emotion_detector.py      # Uses FER to detect emotions from facial images
-│
-├── 🚀  app.py                      # Main application entry point that ties all modules together 
-├── 📦  requirements.txt            # Python dependencies for the project
-├── 🙈  .gitignore                  # Specifies files and folders to be ignored by Git
-└── 📘  README.md                   # Project documentation (you are reading this now 😜)
-```
+<details>
+  <summary><strong>FIRST BUILD</strong></summary>
+  <pre>
+  📁 emotion-aware-chatbot/
+  ├── 📂 .devcontainer/              # ⚙️ Dev container setup for GitHub Codespaces or VS Code
+  │   └── 📄 devcontainer.json       #    - Defines the container environment
+  │
+  ├── 📂 camera/                     # 📸 Webcam utilities
+  │   └── 📄 webcam.py               #    - Captures live video and extracts facial images
+  │
+  ├── 📂 chatbot/                    # 🤖 Chatbot logic
+  │   └── 📄 empathetic_bot.py       #    - Returns emotion-specific responses
+  │
+  ├── 📂 emotion/                    # 😶 Emotion detection module
+  │   └── 📄 emotion_detector.py     #    - Uses FER to detect emotions from facial images
+  │
+  ├── 📄 app.py                      # 🚀 Main entry point that ties all modules together
+  ├── 📄 Dockerfile                  # 🐳 Docker configuration for containerizing the app
+  ├── 📄 requirements.txt            # 📦 Python dependencies
+  ├── 📄 .gitignore                  # 🚫 Git ignore rules
+  ├── 📄 .dockerignore               # 🚫 Docker ignore rules
+  └── 📄 README.md                   # 📘 Project documentation (you are reading this now 😜)
+  </pre>
+</details>
+
 ---
 
 ## 🚀 Getting Started
+### 🐳 Recommended: Run with Docker
+<details> 
+<summary><strong>View Steps</strong></summary> 
+<br> 
 
-### 1. Clone the Repository
+```bash
+### 1. Clone the repository
+git clone https://github.com/haresrinivasa/emotion-aware-chatbot.git
+cd emotion-aware-chatbot
 
-`git clone https://github.com/haresrinivasa/emotion-aware-chatbot.git`
+### 2. Build the Docker image
+docker build -t emotion-aware:first_build .
 
-`cd emotion-aware-chatbot`
+### 3. Run the application
+docker run -it --rm emotion-aware:first_build
+```
+</details>
 
-### 2. Setting up the Virtual Environment
+### 🛠️ Optional: Run Locally Without Docker
+<details> 
+<summary><strong>View Steps</strong></summary> 
+<br> 
 
-`python -m venv first_build_env`
+``` bash
+# 1. Create and activate a virtual environment
+python -m venv first_build_env
+source first_build_env/bin/activate  # On Windows: first_build_env\Scripts\activate
 
-`source first_build_env/bin/activate  # On Windows: first_build_env\Scripts\activate`
+# 2. Install dependencies
+pip install -r requirements.txt
 
-### 3. Installing the Dependencies
+# 3. Install system dependencies (Linux only)
+sudo apt-get update && sudo apt-get install -y libgl1
+sudo apt update
+sudo apt install git-lfs
+git lfs install
 
-`pip install -r requirements.txt`
+# 4. Run the application
+python app.py
+```
+</details>
 
-`sudo apt-get update && sudo apt-get install -y libgl1` 
-`sudo apt update`
-`sudo apt install git-lfs`
-`git lfs install`
+---
 
-### 4. Running the Application
-
-`python app.py`
-
-## 📫 Contact
+## 📫 Developer Contact
 balaji27venkatesh@gmail.com
