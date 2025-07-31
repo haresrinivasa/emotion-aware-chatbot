@@ -1,8 +1,8 @@
 # camera/webcam.py
 import cv2
-
+import os
 def capture_face():
-    image_path = "sample_image.jpg"  # Replace with your image path
+    image_path = os.path.join(os.path.dirname(__file__), "PrivateTest_12945123.jpg")
     face_img = cv2.imread(image_path)
 
     if face_img is None:
