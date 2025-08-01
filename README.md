@@ -57,6 +57,15 @@ This Emotion-Aware Chatbot captures a user's facial expression via webcam, detec
 </details> <br>
 <details>
   <summary><strong>SECOND BUILD</strong></summary>
+  🔁 Flow Summary
+  [User] → clicks "Capture Emotion"
+    ↓
+  [Frontend JS] → captures webcam frame → converts to base64 → sends to backend
+    ↓
+  [Backend] → decodes image → detects emotion → generates response
+    ↓
+  [Frontend] → displays emotion, confidence, and chatbot reply
+  
   Will Upload it soon :)
   <!-- <br> <img src=".images/second_build.jpg" alt="Second Build Output"/> -->
 </details> <br>
@@ -89,6 +98,10 @@ This Emotion-Aware Chatbot captures a user's facial expression via webcam, detec
   </pre>
 </details>
 
+<details>
+<summary><strong>FIRST BUILD</strong></summary>
+
+</details>
 ---
 
 ## 🚀 Getting Started

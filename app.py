@@ -1,27 +1,26 @@
-# app.py
-
-# code only to supress the warning
+from flask import Flask, request, jsonify, send_from_directory, render_template
+from backend.integration import process_image_from_frontend
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # Suppress INFO, WARNING, and ERROR logs from TensorFlow
-import tensorflow as tf
-import logging
-tf.get_logger().setLevel(logging.ERROR)
 
+app = Flask(__name__, static_folder='docs', template_folder='docs')
 
-from camera.webcam import capture_face
-from emotion.emotion_detector import detect_emotion
-from chatbot.empathetic_bot import generate_response
+# Serve the main HTML page
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-def main():
-    print("Starting Emotion-Aware Chatbot ...")
-    face_image = capture_face()
-    emotion, score = detect_emotion(face_image)
-    response = generate_response(emotion)
-    if emotion is None or score is None:
-        print(f"Detected Emotion: {emotion}")
-    else:
-        print(f"Detected Emotion: {emotion} (Confidence: {score*100:.1f} %)")
-    print(f"Chatbot Response: {response}")
+# Serve static files (JS, CSS)
+@app.route('/<path:filename>')
+def serve_static(filename):
+    return send_from_directory(app.static_folder, filename)
 
-if __name__ == "__main__":
-    main()
+# Handle emotion detection POST request
+@app.route('/detect_emotion', methods=['POST'])
+def detect_emotion():
+    data = request.get_json()
+    base64_image = data.get('image')
+    result = process_image_from_frontend(base64_image)
+    return jsonify(result)
+
+if __name__ == '__main__':
+    app.run(debug=True)

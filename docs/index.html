@@ -1,0 +1,24 @@
+<!-- docs/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emotion-Aware Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Emotion-Aware Chatbot</h1>
+    <div class="container">
+        <video id="video" autoplay></video>
+        <button id="captureBtn">Capture Emotion</button>
+        <canvas id="canvas" style="display:none;"></canvas>
+        <div id="result">
+            <p><strong>Detected Emotion:</strong> <span id="emotion">-</span></p>
+            <p><strong>Confidence:</strong> <span id="confidence">-</span></p>
+            <p><strong>Chatbot Response:</strong> <span id="response">-</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

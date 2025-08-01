@@ -1,29 +1,37 @@
-# camera/webcam.py
+#camera/webcam.py
+
 import cv2
-import os
-def capture_face():
-    image_path = os.path.join(os.path.dirname(__file__), "PrivateTest_12945123.jpg")
-    face_img = cv2.imread(image_path)
+import numpy as np
+import base64
 
-    if face_img is None:
-        raise FileNotFoundError(f"Could not load image from {image_path}")
+def decode_base64_image(base64_string):
+    """
+    Decodes a base64-encoded image string (from browser webcam) into an OpenCV image (NumPy array).
 
-    return face_img
+    Parameters:
+    - base64_string (str): The base64-encoded image string from the frontend.
 
-# def capture_face():
-    cap = cv2.VideoCapture(0)
-    print("Press 'q' to capture face and exit.")
-    face_img = None
+    Returns:
+    - image (np.ndarray): The decoded image in OpenCV format.
+    """
+    try:
+        # Remove data URL prefix if present (e.g., "data:image/jpeg;base64,...")
+        if "," in base64_string:
+            base64_string = base64_string.split(",")[1]
 
-    while True:
-        ret, frame = cap.read()
-        if not ret:
-            break
-        cv2.imshow("Webcam - Press 'q' to capture", frame)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            face_img = frame
-            break
+        # Decode the base64 string into bytes
+        image_bytes = base64.b64decode(base64_string)
 
-    cap.release()
-    cv2.destroyAllWindows()
-    return face_img
+        # Convert bytes to a NumPy array
+        np_array = np.frombuffer(image_bytes, np.uint8)
+
+        # Decode the image using OpenCV
+        image = cv2.imdecode(np_array, cv2.IMREAD_COLOR)
+
+        if image is None:
+            raise ValueError("Failed to decode image from base64 string.")
+
+        return image
+
+    except Exception as e:
+        raise ValueError(f"Error decoding base64 image: {e}")
