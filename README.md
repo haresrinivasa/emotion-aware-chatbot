@@ -57,6 +57,9 @@ This Emotion-Aware Chatbot captures a user's facial expression via webcam, detec
 </details> <br>
 <details>
   <summary><strong>SECOND BUILD</strong></summary>
+  <br> On Local <img src=".images/second_build.png" alt="Second Build Output"/><br>
+  <br>
+  <pre>
   🔁 Flow Summary
   [User] → clicks "Capture Emotion"
     ↓
@@ -65,10 +68,8 @@ This Emotion-Aware Chatbot captures a user's facial expression via webcam, detec
   [Backend] → decodes image → detects emotion → generates response
     ↓
   [Frontend] → displays emotion, confidence, and chatbot reply
-  
-  Will Upload it soon :)
-  <!-- <br> <img src=".images/second_build.jpg" alt="Second Build Output"/> -->
-</details> <br>
+  </pre>
+</details>
 
 ---
 
@@ -97,11 +98,37 @@ This Emotion-Aware Chatbot captures a user's facial expression via webcam, detec
   └── 📄 README.md                   # 📘 Project documentation (you are reading this now 😜)
   </pre>
 </details>
-
+<br>
 <details>
-<summary><strong>FIRST BUILD</strong></summary>
-
+  <summary><strong>SECOND BUILD</strong></summary>
+  <pre>
+  📁 emotion-aware-chatbot/
+  ├── 📂 backend/                   # 🔗 Integration logic
+  │   └── 📄 integration.py         #    - Connects webcam, emotion detection, and chatbot
+  │
+  ├── 📂 camera/                    # 📸 Webcam utilities
+  │   └── 📄 webcam.py              #    - Decodes base64 webcam images
+  │
+  ├── 📂 emotion/                   # 😶 Emotion detection module
+  │   └── 📄 emotion_detector.py    #    - Detects emotions using FER or ML model
+  │
+  ├── 📂 chatbot/                   # 🤖 Chatbot logic
+  │   └── 📄 empathetic_bot.py      #    - Returns emotion-specific responses
+  │
+  ├── 📂 docs/                      # 🌐 Frontend assets
+  │   ├── 📄 index.html             #    - Refactored with Material Web Components
+  │   ├── 📄 style.css              #    - Material Design-inspired styling
+  │   └── 📄 script.js              #    - Webcam capture and backend communication
+  │
+  ├── 📄 app.py                     # 🚀 Flask app entry point
+  ├── 📄 Dockerfile                 # 🐳 Docker configuration
+  ├── 📄 requirements.txt           # 📦 Python dependencies
+  ├── 📄 .gitignore                 # 🚫 Git ignore rules
+  ├── 📄 .dockerignore              # 🚫 Docker ignore rules
+  └── 📄 README.md                  # 📘 Project documentation (you are reading this now 😜)
+  </pre>
 </details>
+
 ---
 
 ## 🚀 Getting Started
@@ -116,10 +143,10 @@ git clone https://github.com/haresrinivasa/emotion-aware-chatbot.git
 cd emotion-aware-chatbot
 
 ### 2. Build the Docker image
-docker build -t emotion-aware:first_build .
+docker build -t emotion-aware .
 
 ### 3. Run the application
-docker run -it --rm emotion-aware:first_build
+docker run -it --rm emotion-aware
 ```
 </details>
 
