@@ -1,24 +1,35 @@
-<!-- docs/index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Emotion-Aware Chatbot</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Emotion-Aware Chatbot</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto" >
 </head>
 <body>
-    <h1>Emotion-Aware Chatbot</h1>
-    <div class="container">
-        <video id="video" autoplay></video>
-        <button id="captureBtn">Capture Emotion</button>
-        <canvas id="canvas" style="display:none;"></canvas>
-        <div id="result">
-            <p><strong>Detected Emotion:</strong> <span id="emotion">-</span></p>
-            <p><strong>Confidence:</strong> <span id="confidence">-</span></p>
-            <p><strong>Chatbot Response:</strong> <span id="response">-</span></p>
-        </div>
-    </div>
-    <script src="script.js"></script>
+<h1>Emotion-Aware Chatbot</h1>
+<div class="container">
+<video id="video" autoplay></video>
+
+<!-- Capture Button -->
+<button id="captureBtn">Capture Emotion</button>
+
+<!-- Flash Notification (below button) -->
+<div id="notification" class="snackbar"></div>
+
+<!-- Hidden Canvas -->
+<canvas id="canvas" style="display:none;"></canvas>
+
+<!-- Loader Spinner -->
+<div id="loader" class="loader" style="display:none;"></div>
+
+<!-- Result Display -->
+<div id="result">
+<p>Detected Emotion: <span id="emotion">--</span></p>
+<p>Confidence: <span id="confidence">--</span></p>
+<p>Chatbot Response: <span id="response">--</span></p>
+</div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
